@@ -4,7 +4,7 @@ package CardGame;
  * @author Bernard Serbinowski
  * @author Seth Zebrack
  */
-public class Empty {
+public class Card {
 	
 	
 }

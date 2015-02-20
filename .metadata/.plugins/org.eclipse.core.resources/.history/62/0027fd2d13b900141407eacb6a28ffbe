@@ -29,7 +29,7 @@ public class GuiGame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GuiGame window = new GuiGame();
+					Guione window = new Guione();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class GuiGame {
 	/**
 	 * Create the application.
 	 */
-	public GuiGame() {
+	public Guione() {
 		initialize();
 	}
 
