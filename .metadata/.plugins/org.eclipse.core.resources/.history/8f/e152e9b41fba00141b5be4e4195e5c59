@@ -23,7 +23,7 @@ public class DeckBuilder {
 			//System.out.println("The card @" + i+1 + "="+Deck.DeckList[i]+"do you want to change it? y/n");//Name/get the card for position x
 			boolean changecard=true;
 					
-			if(changecard==true)
+			if(changecard=true)
 			{
 				topDeckCard="pull name of new card here";
 				deck.replaceCardAt(i, new Card(topDeckCard));

@@ -2,17 +2,15 @@ package CardGame;
 
 import java.io.IOException;
 import java.util.Random;
-/**
- * will have to refactor the class to start with a capital letter.
- * @author Bernard Serbinowski
- *
- */
+
 public class gameplay {
 	
 	private String deckname1;
 	private String deckname2;
 	Player player1 = new Player();
-	Player player2 = new Player();//this shuld probably be changed to an arrayList or some shit
+	Player player2 = new Player();
+	Deck Deck1 = new Deck();
+	Deck Deck2 = new Deck();
 	int playerturn;
 	
 	public gameplay() throws IOException{
