@@ -36,8 +36,8 @@ public class DeckBuilder {
 		for (int i=0; i<40; i++){
 			Deck.Addcard(i, "lol");
 		}
-		Deck.SaveDeck();
-		Deck.LoadDeck(GivenName);
+		//Deck.SaveDeck();
+		//Deck.LoadDeck(GivenName);
 		//gameplay newgame = new gameplay();
 		
 		

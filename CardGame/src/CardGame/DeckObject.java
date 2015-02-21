@@ -14,9 +14,9 @@ public class DeckObject {
 		DeckList[position]= cardname;				
 	}
 	
-	void Drawcard(int drawn){
+	void Drawcard(){
 		System.out.println(DeckList[TopDeck]);
-		TopDeck = TopDeck+drawn;	
+		TopDeck = TopDeck+1;	
 	}
 	
 	void Name(String inputName){
