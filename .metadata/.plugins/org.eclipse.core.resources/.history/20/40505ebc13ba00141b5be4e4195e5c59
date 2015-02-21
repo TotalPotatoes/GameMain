@@ -26,15 +26,11 @@ public class GuiGame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		/*
 		Card c=new Card("Default 2");
 		System.out.println(c.getName());
 		System.out.println(c.getCastTime());
 		System.out.println(c.getResourceConvertable());
 		System.out.println(c.getType());
-		*/
-		Deck d=new Deck();
-		d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

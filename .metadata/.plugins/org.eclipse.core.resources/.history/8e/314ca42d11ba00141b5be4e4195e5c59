@@ -9,8 +9,8 @@ public class gameplay {
 	private String deckname2;
 	Player player1 = new Player();
 	Player player2 = new Player();
-	Deck Deck1 = new Deck();
-	Deck Deck2 = new Deck();
+	DeckObject Deck1 = new DeckObject();
+	DeckObject Deck2 = new DeckObject();
 	int playerturn;
 	
 	public gameplay() throws IOException{

@@ -34,7 +34,7 @@ public class GuiGame {
 		System.out.println(c.getType());
 		*/
 		Deck d=new Deck();
-		d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
+		d.loadDeck();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

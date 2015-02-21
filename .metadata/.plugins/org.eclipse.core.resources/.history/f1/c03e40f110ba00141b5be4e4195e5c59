@@ -32,24 +32,15 @@ public class Card {
 	private Type type;
 	
 	public Card(String nameOf){
-		name=nameOf;//initialize
+		name=nameOf;
 		try{
 		initializeFromFile();
-		}catch(CardCreationException e){System.out.println("whoops");};//should make that better
+		}catch(CardNotFoundException e){System.out.println("whoops");};
 	}
-	/**
-	 * 
-	 * @return the enum
-	 */
 	public Type getType(){
 		return type;
 	}
-	/**
-	 * a helper method which just sets the type based off of a string
-	 * @param s
-	 * @throws CardCreationException
-	 */
-	private void setType(String s) throws CardCreationException{
+	private void setType(String s) throws CardNotFoundException{
 		switch(s){
 		case "SUMMON":
 			type=Type.SUMMON;
@@ -64,7 +55,7 @@ public class Card {
 			type=Type.TERRAIN;
 			break;
 		default:
-			throw new CardCreationException("attempted to set type as: "+s);
+			throw new CardNotFoundException("attempted to set type as: "+s);
 		}
 	}
 	public int[] getCost(){
@@ -92,19 +83,14 @@ public class Card {
 		}
 		return false;
 	}
-	/**
-	 * NOT YET IMPLEMENTED. NOT SURE HOW THIS WILL WORK YET
-	 * probably a series of keywords?
-	 */
 	public void getRules(){
 		
 	}
 	/**
 	 * aight this method works
-	 * not really sure how though atm
-	 * @throws CardCreationException
+	 * @throws CardNotFoundException
 	 */
-	private void initializeFromFile() throws CardCreationException{
+	private void initializeFromFile() throws CardNotFoundException{
 		String xml="D:/repositories/GameMain/CardGame/src/CardGame/cardData.xml";
 		//String xml="D:/repositories/GameMain/CardGame/src/CardGame/roles.xml";
         Document dom;
@@ -137,7 +123,7 @@ public class Card {
             	}
             }
             if(!found){
-            	throw new CardCreationException("this card: "+name+" could not be found");
+            	throw new CardNotFoundException("this card: "+name+" could not be found");
             }
             for(int count=0; count <listN.getLength(); count++){
             	n=listN.item(count);
@@ -153,8 +139,8 @@ public class Card {
 	            		{
 	            			try{
 	            				castTime=(int)Integer.parseInt(n.getFirstChild().getNodeValue());
-	            			}catch(ClassCastException e){throw new CardCreationException("Failed castTime: "+n.getFirstChild().getNodeValue());}
-	            			catch(NumberFormatException e){throw new CardCreationException("Failed castTime: "+n.getFirstChild().getNodeValue());}
+	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed castTime: "+n.getFirstChild().getNodeValue());}
+	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed castTime: "+n.getFirstChild().getNodeValue());}
 	            			break;
 	            		}
 	            		case "resource":
@@ -166,7 +152,7 @@ public class Card {
 	            				resourceConvertable=false;
 	            			}
 	            			else{
-	            				throw new CardCreationException("Failed resouce: "+n.getFirstChild().getNodeValue());
+	            				throw new CardNotFoundException("Failed resouce: "+n.getFirstChild().getNodeValue());
 	            			}
 	            			break;
 	            		}
@@ -174,36 +160,36 @@ public class Card {
 	            		{
 	            			try{
 	            				cost[0]=(int)Integer.parseInt(n.getFirstChild().getNodeValue());
-	            			}catch(ClassCastException e){throw new CardCreationException("Failed costB: "+n.getFirstChild().getNodeValue());}
-	            			catch(NumberFormatException e){throw new CardCreationException("Failed costB: "+n.getFirstChild().getNodeValue());}
+	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed costB: "+n.getFirstChild().getNodeValue());}
+	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed costB: "+n.getFirstChild().getNodeValue());}
 	            			break;
 	            		}
 	            		case "costG":
 	            		{
 	            			try{
 	            				cost[1]=(int)Integer.parseInt(n.getFirstChild().getNodeValue());
-	            			}catch(ClassCastException e){throw new CardCreationException("Failed costG: "+n.getFirstChild().getNodeValue());}
-	            			catch(NumberFormatException e){throw new CardCreationException("Failed costG: "+n.getFirstChild().getNodeValue());}
+	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed costG: "+n.getFirstChild().getNodeValue());}
+	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed costG: "+n.getFirstChild().getNodeValue());}
 	            			break;
 	            		}
 	            		case "costW":
 	            		{
 	            			try{
 	            				cost[2]=(int)Integer.parseInt(n.getFirstChild().getNodeValue());
-	            			}catch(ClassCastException e){throw new CardCreationException("Failed costW: "+n.getFirstChild().getNodeValue());}
-	            			catch(NumberFormatException e){throw new CardCreationException("Failed costW: "+n.getFirstChild().getNodeValue());}
+	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed costW: "+n.getFirstChild().getNodeValue());}
+	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed costW: "+n.getFirstChild().getNodeValue());}
 	            			break;
 	            		}
 	            		case "costN":
 	            		{
 	            			try{
 	            				cost[3]=(int)Integer.parseInt(n.getFirstChild().getNodeValue());
-	            			}catch(ClassCastException e){throw new CardCreationException("Failed costN: "+n.getFirstChild().getNodeValue());}
-	            			catch(NumberFormatException e){throw new CardCreationException("Failed costN: "+n.getFirstChild().getNodeValue());}
+	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed costN: "+n.getFirstChild().getNodeValue());}
+	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed costN: "+n.getFirstChild().getNodeValue());}
 	            			break;
 	            		}
 	            		default:
-	            			throw new CardCreationException("this card: "+name+" had weird things in the XML file");
+	            			throw new CardNotFoundException("this card: "+name+" had weird things in the XML file");
 	            			
             		}
             	}

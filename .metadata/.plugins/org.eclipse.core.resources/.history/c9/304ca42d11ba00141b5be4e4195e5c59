@@ -7,14 +7,14 @@ public class DeckBuilder {
 	//public static void main(String[] args) throws IOException {
 	 DeckBuilder() {
 		//take input for deck name
-		String givenName="test";
-		String topDeckCard="";
+		String GivenName="test";
+		String TopDeckCard="";
 		
 		
 		System.out.println("Name Deck");
 		//Name = GuiDeckBuilder.EnteredName //pulls deck name from Gui
-		Deck deck = new Deck();		
-		deck.setName(givenName);
+		DeckObject Deck = new DeckObject();		
+		Deck.Name(GivenName);
 		
 
 		
@@ -25,8 +25,8 @@ public class DeckBuilder {
 					
 			if(changecard=true)
 			{
-				topDeckCard="pull name of new card here";
-				deck.replaceCardAt(i, new Card(topDeckCard));
+				TopDeckCard="pull name of new card here";
+				Deck.Addcard(i, TopDeckCard);
 			}
 				
 				
@@ -34,8 +34,11 @@ public class DeckBuilder {
 				
 		}
 		for (int i=0; i<40; i++){
-			deck.replaceCardAt(i, new Card("lol"));
+			Deck.Addcard(i, "lol");
 		}
+		//Deck.SaveDeck();
+		//Deck.LoadDeck(GivenName);
+		//gameplay newgame = new gameplay();
 		
 		
 	}

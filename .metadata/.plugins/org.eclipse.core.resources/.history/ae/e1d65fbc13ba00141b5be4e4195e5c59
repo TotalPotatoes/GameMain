@@ -92,16 +92,11 @@ public class Card {
 		}
 		return false;
 	}
-	/**
-	 * NOT YET IMPLEMENTED. NOT SURE HOW THIS WILL WORK YET
-	 * probably a series of keywords?
-	 */
 	public void getRules(){
 		
 	}
 	/**
 	 * aight this method works
-	 * not really sure how though atm
 	 * @throws CardCreationException
 	 */
 	private void initializeFromFile() throws CardCreationException{
