@@ -16,8 +16,8 @@ public class gameplay {
 	public gameplay() throws IOException{
 
 		//ask players for names of their decks
-		player1.LoadDeck(deckname1);
-		player2.LoadDeck(deckname2);
+		player1.loadDeck(deckname1);
+		player2.loadDeck(deckname2);
 		
 		//gui stuff
 		
@@ -51,13 +51,13 @@ public class gameplay {
 		while(player1.alive == true && player2.alive == true){
 			if(playerturn==1){				
 				player1.phase1();//draw/upkeep/draw or mana or stats
-				player1.cast();
+				//player1.cast();
 				
 				playerturn=2;
 			}
 			if(playerturn==2){
 				player2.phase1();
-				player2.cast();
+				//player2.cast();
 				
 				
 				playerturn=1; //or 3 for players >2
