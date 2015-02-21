@@ -33,30 +33,11 @@ public class Card {
 	
 	public Card(String nameOf){
 		name=nameOf;
-		try{
 		initializeFromFile();
-		}catch(CardNotFoundException e){System.out.println("whoops");};
+		//rest of the values should be initialized via a lookuptable
 	}
 	public Type getType(){
 		return type;
-	}
-	private void setType(String s) throws CardNotFoundException{
-		switch(s){
-		case "SUMMON":
-			type=Type.SUMMON;
-			break;
-		case "BUFF":
-			type=Type.BUFF;
-			break;
-		case "DIRECT":
-			type=Type.DIRECT;
-			break;
-		case "TERRAIN":
-			type=Type.TERRAIN;
-			break;
-		default:
-			throw new CardNotFoundException("attempted to set type as: "+s);
-		}
 	}
 	public int[] getCost(){
 		return cost;
@@ -138,7 +119,7 @@ public class Card {
 
 	       // return false;
 	}
-	private void initializeFromFile() throws CardNotFoundException{
+	private void initializeFromFile(){
         rolev = new ArrayList<String>();
 		String xml="D:/repositories/GameMain/CardGame/src/CardGame/cardData.xml";
 		//String xml="D:/repositories/GameMain/CardGame/src/CardGame/roles.xml";
@@ -162,7 +143,6 @@ public class Card {
             		if(listN.item(count).getAttributes().item(0).toString().equals("id="+"\""+name+"\"")){
             			//System.out.print("+++++");
             			n=listN.item(count);
-                        listN=n.getChildNodes();
             			found=true;
             			break;
             		}
@@ -172,55 +152,7 @@ public class Card {
             	}
             }
             if(!found){
-            	throw new CardNotFoundException("this card: "+name+" could not be found");
-            }
-            for(int count=0; count <listN.getLength(); count++){
-            	n=listN.item(count);
-            	if(n.getNodeType()== Node.ELEMENT_NODE){
-            		String temp=n.getNodeName();
-            		switch(temp){
-	            		case "cardType":
-	            		{
-	            			setType(n.getFirstChild().getNodeName());
-	            			break;
-	            		}
-	            		case "castTime":
-	            		{
-	            			try{
-	            				castTime=(int)Integer.parseInt(n.getFirstChild().getNodeName());
-	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed cast time: "+n.getFirstChild().getNodeName());}
-	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed cast time: "+n.getFirstChild().getNodeName());}
-	            			break;
-	            		}
-	            		case "resource":
-	            		{
-	            			
-	            			break;
-	            		}
-	            		case "costB":
-	            		{
-	            			break;
-	            		}
-	            		case "costW":
-	            		{
-	            			break;
-	            		}
-	            		case "costG":
-	            		{
-	            			break;
-	            		}
-	            		case "costN":
-	            		{
-	            			break;
-	            		}
-	            		default:
-	            			throw new CardNotFoundException("this card: "+name+" had weird things in the XML file");
-	            			
-            		}
-            		//System.out.print(listN.item(count).getAttributes().item(0).toString());
-            		//System.out.print("-------------");
-            		//System.out.println("id="+name);
-            	}
+            	
             }
             /*
             NodeList n1=doc.getChildNodes();
@@ -262,5 +194,8 @@ public class Card {
 	        value = nl.item(0).getFirstChild().getNodeValue();
 	    }
 	    return value;
+	}
+	public class CardNotFoundError extends Exception{
+		
 	}
 }

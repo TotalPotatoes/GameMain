@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT cardList (card)>
-<!ELEMENT card (name, cardType, castTime, resource, costB, costW, costG, costN)>
-<!ELEMENT name (#PCDATA)>
+<!ELEMENT card (cardType, castTime, resource, costB, costW, costG, costN)>
 <!ELEMENT cardType (#PCDATA)>
 <!ELEMENT castTime (#PCDATA)>
 <!ELEMENT resource (#PCDATA)>

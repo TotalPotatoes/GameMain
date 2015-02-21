@@ -40,24 +40,6 @@ public class Card {
 	public Type getType(){
 		return type;
 	}
-	private void setType(String s) throws CardNotFoundException{
-		switch(s){
-		case "SUMMON":
-			type=Type.SUMMON;
-			break;
-		case "BUFF":
-			type=Type.BUFF;
-			break;
-		case "DIRECT":
-			type=Type.DIRECT;
-			break;
-		case "TERRAIN":
-			type=Type.TERRAIN;
-			break;
-		default:
-			throw new CardNotFoundException("attempted to set type as: "+s);
-		}
-	}
 	public int[] getCost(){
 		return cost;
 	}
@@ -181,20 +163,14 @@ public class Card {
             		switch(temp){
 	            		case "cardType":
 	            		{
-	            			setType(n.getFirstChild().getNodeName());
 	            			break;
 	            		}
 	            		case "castTime":
 	            		{
-	            			try{
-	            				castTime=(int)Integer.parseInt(n.getFirstChild().getNodeName());
-	            			}catch(ClassCastException e){throw new CardNotFoundException("Failed cast time: "+n.getFirstChild().getNodeName());}
-	            			catch(NumberFormatException e){throw new CardNotFoundException("Failed cast time: "+n.getFirstChild().getNodeName());}
 	            			break;
 	            		}
 	            		case "resource":
 	            		{
-	            			
 	            			break;
 	            		}
 	            		case "costB":

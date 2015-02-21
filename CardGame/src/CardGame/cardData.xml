@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE roles SYSTEM "cards.dtd">
-<cardList>
-	<card>
-    		<name>Default 1</name>
+<cardList id="potato">
+	<card id="Default 1">
 		<cardType>SUMMON</cardType>
     		<castTime>10</castTime>
 		<resource>false</resource>
@@ -10,5 +8,14 @@
     		<costW>1</costW>
     		<costG>1</costG>
     		<costN>1</costN>
+    	</card>
+	<card id="Default 2">
+		<cardType>BUFF</cardType>
+    		<castTime>5</castTime>
+		<resource>true</resource>
+    		<costB>2</costB>
+    		<costW>2</costW>
+    		<costG>2</costG>
+    		<costN>2</costN>
     	</card>
 </cardList>
