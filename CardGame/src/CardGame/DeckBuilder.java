@@ -1,8 +1,10 @@
 package CardGame;
 
+import java.io.IOException;
+
 public class DeckBuilder {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		//take input for deck name
 		String GivenName="test";
 		String TopDeckCard="";
@@ -30,6 +32,10 @@ public class DeckBuilder {
 
 				
 		}
+		for (int i=0; i<40; i++){
+			Deck.Addcard(i, "lol");
+		}
+		Deck.SaveDeck();
 			
 		
 	}

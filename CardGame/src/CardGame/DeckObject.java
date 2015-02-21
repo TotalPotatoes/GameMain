@@ -1,8 +1,6 @@
 package CardGame;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class DeckObject {
 	
@@ -33,21 +31,24 @@ public class DeckObject {
 
 	void SaveDeck() throws IOException
 	{
-		BufferedWriter SavedList = null;
-		{
-		    SavedList = new BufferedWriter( new FileWriter( name));
+		System.out.println("Saving");
+		File SavedList = new File(name);
+		SavedList.createNewFile();
+		FileWriter writer = new FileWriter(SavedList);
+		
 		    for (int i=0; i<40; i++)
-		    {
-		    	SavedList.write( DeckList[i]);
-		    }
-	  
-		    SavedList.close( );
-		}
-
+		    {		    	
+				writer.write( DeckList[i]);
+		    }	  
+		    writer.close( );
+	
 	}
 	
-	void LoadDeck()
+	void LoadDeck(String LoadName) throws IOException
 	{
+		FileReader fr = new FileReader(LoadName); 
+
+	      fr.close();
 			
 	}
 } 
