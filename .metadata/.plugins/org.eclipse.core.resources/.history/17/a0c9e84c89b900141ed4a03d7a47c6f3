@@ -26,11 +26,8 @@ public class GuiGame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Card c=new Card("Default 2");
-		System.out.println(c.getName());
+		Card c=new Card("Default 1");
 		System.out.println(c.getCastTime());
-		System.out.println(c.getResourceConvertable());
-		System.out.println(c.getType());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
