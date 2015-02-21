@@ -6,8 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javax.swing.JFileChooser;
-
 public class Deck {
 	
 
@@ -22,9 +20,9 @@ public class Deck {
 	/**
 	 * i don't even know what the point of this is....?
 	 */
-	public void drawCard(){
-		System.out.println(deckList[topDeck]);
-		topDeck = topDeck+1;	
+	public Card drawCard(){
+		topDeck = topDeck+1;
+		return deckList[topDeck-1];
 	}
 	
 	public void setName(String inputName){
