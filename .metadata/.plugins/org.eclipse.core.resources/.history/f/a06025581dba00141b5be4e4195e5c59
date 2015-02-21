@@ -5,11 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-/**
- * would suggest switching away from array
- * @author Bernard Serbinowski
- *
- */
+
 public class Deck {
 	
 

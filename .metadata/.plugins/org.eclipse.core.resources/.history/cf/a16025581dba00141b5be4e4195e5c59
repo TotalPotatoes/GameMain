@@ -38,8 +38,5 @@ public class Hand {
 	public void clearHand(){
 		cards.clear();
 	}
-	public int getHandSize(){
-		return cards.size();
-	}
 
 }

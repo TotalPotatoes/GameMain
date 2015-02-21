@@ -12,25 +12,25 @@ import java.util.ArrayList;
  */
 public class Player {
 	//attributes
-	private int health=100;//how much health the player has
-	private int armor=0;//how much armor the player has
-	private int magicresist=0;;//how much magic resist the player has
-	private int speed=10;//how much speed the player has
-	private int intellect=0;//how much intellect the player has
-	private int attack=1;
-	private int strength=0;
-	private int spellpower=0;
-	private int spellspeed=10;
-	private int ttm=0;
-	private int black=0;
-	private int white=0;
-	private int grey=0;
+	int health=100;//how much health the player has
+	int armor=0;//how much armor the player has
+	int magicresist=0;;//how much magic resist the player has
+	int speed=10;//how much speed the player has
+	int intellect=0;//how much intellect the player has
+	int attack=1;
+	int strength=0;
+	int spellpower=0;
+	int spellspeed=10;
+	int ttm=0;
+	int black=0;
+	int white=0;
+	int grey=0;
 	
 	
-	private Deck deck;
-	private Hand hand;
-	private boolean first = false; 
-	private boolean alive = true;  
+	Deck deck;
+	Hand hand;
+	boolean first = false; 
+	boolean alive = true;  
 	
 	
 	
@@ -41,19 +41,19 @@ public class Player {
 		if(first == true){
 			health = 100;
 			for(int i=0; i<5; i++)//draw 5 starting
-				drawCard();
+				Drawcard();
 			
 		}
 		else{
 			health = 105;//going seconds stats
 			for(int i=0; i<5; i++)//draw 5 starting
-				drawCard();
+				Drawcard();
 		}
 		
 			
 	}
 	void phase1(){ //players take their turns
-		drawCard();
+		Drawcard();
 		upkeep();//where mana burn happens
 		drawormana();
 		
@@ -77,9 +77,6 @@ public class Player {
 	}
 	
 	*/
-	public void loadDeck(String fileName){
-		deck.loadDeck(fileName);
-	}
 	void playedcard(Card c){
 		hand.removeCard(c);
 	}
@@ -98,9 +95,7 @@ public class Player {
 	void addstati(){
 		intellect++;
 	}
-	public boolean getAlive(){
-		return alive;
-	}
+	
 	
 	
 	void start() {first = true;}
@@ -111,7 +106,7 @@ public class Player {
 		String choice = "add stat s"; //add method to get choice from gui, draw or mana or +1 stat, idk
 		switch (choice){
 			case "draw":
-				drawCard();
+				Drawcard();
 				break;
 			case "mana":
 				mana();
@@ -123,7 +118,7 @@ public class Player {
 				addstati();
 				break;
 			default:
-				drawCard();
+				Drawcard();
 				
 		}
 	}

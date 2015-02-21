@@ -48,7 +48,7 @@ public class gameplay {
 	}
 		
 	void play() {
-		while(player1.getAlive() == true && player2.getAlive() == true){
+		while(player1.alive == true && player2.alive == true){
 			if(playerturn==1){				
 				player1.phase1();//draw/upkeep/draw or mana or stats
 				//player1.cast();

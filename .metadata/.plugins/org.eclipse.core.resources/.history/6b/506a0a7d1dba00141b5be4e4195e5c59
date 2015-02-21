@@ -98,9 +98,7 @@ public class Player {
 	void addstati(){
 		intellect++;
 	}
-	public boolean getAlive(){
-		return alive;
-	}
+	
 	
 	
 	void start() {first = true;}
