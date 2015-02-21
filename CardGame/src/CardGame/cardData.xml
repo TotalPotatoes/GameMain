@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE roles SYSTEM "cards.dtd">
+<cardList>
+	<card>
+    		<name>Default 1</name>
+		<cardType>SUMMON</cardType>
+    		<castTime>10</castTime>
+		<resource>false</resource>
+    		<costB>1</costB>
+    		<costW>1</costW>
+    		<costG>1</costG>
+    		<costN>1</costN>
+    	</card>
+</cardList>

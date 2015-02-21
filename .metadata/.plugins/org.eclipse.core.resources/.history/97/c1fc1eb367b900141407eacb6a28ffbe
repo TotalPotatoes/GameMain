@@ -1,0 +1,39 @@
+package CardGame;
+/**
+ * nothing here yet. just need to make sure it's all working
+ * @author Bernard Serbinowski
+ * @author Seth Zebrack
+ */
+public abstract class Card {
+	
+	protected int[] cost=new int[4];//0 is black, 1 is grey, 2 is white, 3 is neutral
+	protected boolean resourceConvertable;//can this be converted to a resource
+	protected String name;//the name of the card
+	protected int castTime;
+
+	public enum Type{
+		SUMMON, DIRECT, TERRAIN, BUFF;//place holder but like will probably be changed later or something
+	}
+	
+	protected Type type;
+	
+	public Card(){
+		
+	}
+	public Type getType(){
+		return type;
+	}
+	public int[] getCost(){
+		return cost;
+	}
+	public boolean getResourceConvertable(){
+		return resourceConvertable;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getCastTime(){
+		return castTime;
+	}
+	
+}

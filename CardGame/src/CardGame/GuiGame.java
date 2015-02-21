@@ -26,6 +26,7 @@ public class GuiGame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Card c=new Card("a");
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -1,0 +1,12 @@
+package CardGame;
+
+public class DirectCard extends Card {
+	
+	public DirectCard(String nameOf, int costs[], int cast){
+		this.type=Type.DIRECT;
+		this.cost=costs;
+		this.name=nameOf;
+		this.castTime=cast;
+	}
+
+}
