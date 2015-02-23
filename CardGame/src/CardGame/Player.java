@@ -77,11 +77,25 @@ public class Player {
 	}
 	
 	*/
+	/**
+	 * 
+	 * @param cast
+	 */
+	public void cast(Card castedcard){
+		playedcard(castedcard);
+		playedcost(castedcard)		
+	}
+	
 	public void loadDeck(String fileName){
 		deck.loadDeck(fileName);
 	}
 	void playedcard(Card c){
 		hand.removeCard(c);
+	}
+	public void playedcost(Card cost){
+		black = black;//minus the black cost of card
+		white = white;//minus the white cost
+		grey = grey; // minus the grey cost
 	}
 	void drawCard(){ //how one draws a card
 		hand.addCard(deck.drawCard());
