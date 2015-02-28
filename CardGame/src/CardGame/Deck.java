@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * would suggest switching away from array
@@ -12,83 +13,72 @@ import java.util.Scanner;
  */
 public class Deck {
 	
-
-	private String name="DefaultDeck";//the name of the deck
-	private Card[] deckList = new Card[40];//the number is the deck size
-	private boolean first = false; //dafuq is this?
-	private int topDeck = 0;//where you currently are in your deck, ie when you draw 7 cards you go down 7 
+	private static final int size=40;
+	private ArrayList<Card> deckList=new ArrayList<Card>();
+	
 		
 	public void replaceCardAt(int position,Card c){
-		deckList[position]= c;				
+		deckList.set(position, c);	
 	}
 	/**
-	 * i don't even know what the point of this is....?
+	 * returns and removes the top card
 	 */
 	public Card drawCard(){
-		topDeck = topDeck+1;
-		return deckList[topDeck-1];
+		return deckList.remove(0);
 	}
 	
-	public void setName(String inputName){
-		name= inputName;
-	}
-	
-	public Card topDeckName()
-	{
-		return deckList[topDeck];
-	}
-	
-	//static void writeStringToFile(File file, String data)
 	/**
-	 * this should probably be removed. not much point of it
-	 * saving/creating/editing deckLists should be done by somethign esle
-	 * @throws IOException
+	 * returns the top card without removing it
+	 * @return the top card
 	 */
-	public void saveDeck() throws IOException
+	public Card peekAtTopCard()
 	{
-		System.out.println("Saving");
-		File SavedList = new File(name);
-		SavedList.createNewFile();
-		FileWriter writer = new FileWriter(SavedList);
-		
-		    for (int i=0; i<40; i++)
-		    {		    	
-				writer.write( deckList[i]+"\n");
-		    }	  
-		    writer.close( );
-	
+		return deckList.get(0);
 	}
+	/**
+	 * i think should draw the top x cards???
+	 * @param x
+	 * @return
+	 */
+	public Card[] drawXCards(int x){
+		Card[] returner=new Card[x];
+		returner=deckList.subList(0, x).toArray(returner);
+		deckList.subList(0, x).clear();
+		return returner;
+	}
+	
 	/**
 	 * this loads a deck from the specified file
 	 * format of the file should be 1 line per card
 	 * @param fileName the location of the deckFile
+	 * @throws DeckCreationException 
 	 */
-	public void loadDeck(String fileName)
+	public void loadDeck(String fileName) throws DeckCreationException
 	{
 		File file=new File(fileName);
 		try {
 			Scanner fRead=new Scanner(file);
 			int count=0;
 			while(fRead.hasNext()){
-				deckList[count]=new Card(fRead.nextLine());
+				deckList.add(new Card(fRead.nextLine()));
 				count++;
-				if(count>=40){
+				if(count>=size){
 					fRead.close();
-					break;
+					throw new DeckCreationException("too many cards: "+count);
 				}
 				
 			}
 			fRead.close();
+			if(count<40){
+				throw new DeckCreationException("too few cards: "+count);
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new DeckCreationException("file not found");
 		}
 	}
 	
-	
-	public void start() {
-		first = true;
-	}
 
 }
  
