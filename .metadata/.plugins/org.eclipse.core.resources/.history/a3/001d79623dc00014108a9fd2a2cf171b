@@ -7,10 +7,14 @@ public class DeckBuilder {
 	//public static void main(String[] args) throws IOException {
 	 DeckBuilder() {
 		//take input for deck name
+		String givenName="test";
 		String topDeckCard="";
 		
 		
+		System.out.println("Name Deck");
+		//Name = GuiDeckBuilder.EnteredName //pulls deck name from Gui
 		Deck deck = new Deck();		
+		deck.setName(givenName);
 		
 
 		

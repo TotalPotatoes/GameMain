@@ -34,12 +34,7 @@ public class GuiGame {
 		System.out.println(c.getType());
 		*/
 		Deck d=new Deck();
-		try {
-			d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
-		} catch (DeckCreationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

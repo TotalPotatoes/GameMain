@@ -15,7 +15,7 @@ public class Gameplay {
 	Player player2 = new Player();//this shuld probably be changed to an arrayList or some shit
 	int playerturn;
 	
-	public Gameplay() throws IOException, DeckCreationException{
+	public Gameplay() throws IOException{
 
 		//ask players for names of their decks
 		player1.loadDeck(deckname1);

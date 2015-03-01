@@ -24,7 +24,6 @@ public class Card {
 	private boolean resourceConvertable;//can this be converted to a resource
 	private String name;//the name of the card
 	private int castTime;//how long it takes to cast this card
-	private ArrayList<Keyword> keywords;
 
 	public enum Type{
 		SUMMON, DIRECT, TERRAIN, BUFF;//place holder but like will probably be changed later or something
@@ -97,8 +96,8 @@ public class Card {
 	 * NOT YET IMPLEMENTED. NOT SURE HOW THIS WILL WORK YET
 	 * probably a series of keywords?
 	 */
-	public ArrayList<Keyword> getRules(){
-		return keywords;
+	public void getRules(){
+		
 	}
 	/**
 	 * aight this method works

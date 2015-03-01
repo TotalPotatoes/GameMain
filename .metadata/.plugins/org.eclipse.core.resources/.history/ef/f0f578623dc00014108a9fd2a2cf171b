@@ -83,10 +83,10 @@ public class Player {
 	 */
 	public void cast(Card castedcard){
 		playedcard(castedcard);
-		playedcost(castedcard);		
+		playedcost(castedcard)		
 	}
 	
-	public void loadDeck(String fileName) throws DeckCreationException{
+	public void loadDeck(String fileName){
 		deck.loadDeck(fileName);
 	}
 	void playedcard(Card c){
