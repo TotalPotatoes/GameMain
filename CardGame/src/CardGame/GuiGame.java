@@ -1,14 +1,11 @@
 package CardGame;
 
+import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.CardLayout;
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
-import java.awt.Canvas;
-import java.awt.SystemColor;
-import java.awt.Color;
 
 /**
  * Gui Maybe?
