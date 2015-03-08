@@ -16,10 +16,6 @@ public class Keyword {
 	public Keyword(String key){
 		
 	}
-	/**
-	 * returns the name of the keyword
-	 * @return
-	 */
 	public String getKey(){
 		return keyName;
 	}
