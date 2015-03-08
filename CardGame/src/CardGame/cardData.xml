@@ -18,4 +18,13 @@
     		<costG>2</costG>
     		<costN>2</costN>
     	</card>
+	<card id="Damage 1">
+		<cardType>DIRECT</cardType>
+    		<castTime>10</castTime>
+		<resource>false</resource>
+    		<costB>1</costB>
+    		<costW>1</costW>
+    		<costG>1</costG>
+    		<costN>1</costN>
+    	</card>
 </cardList>

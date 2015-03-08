@@ -1,7 +1,9 @@
 package CardGame;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,8 +27,13 @@ public class Card {
 	private boolean resourceConvertable;//can this be converted to a resource
 	private String name;//the name of the card
 	private int castTime;//how long it takes to cast this card
-	private ArrayList<Keyword> keywords;
+	private ArrayList<Keyword> keywords=new ArrayList<Keyword>();
 
+	/**
+	 * i think this is going to be cut....because i hate it.
+	 * @author Bernard Serbinowski
+	 *
+	 */
 	public enum Type{
 		SUMMON, DIRECT, TERRAIN, BUFF;//place holder but like will probably be changed later or something
 	}
@@ -37,6 +44,7 @@ public class Card {
 		name=nameOf;//initialize
 		try{
 		initializeFromFile();
+		acquireKeywords();
 		}catch(CardCreationException e){System.out.println("whoops");};//should make that better
 	}
 	/**
@@ -219,5 +227,33 @@ public class Card {
             System.err.println(ioe.getMessage());
         }
 
+	}
+	/**
+	 * gets the keywords associated with the file name
+	 */
+	private void acquireKeywords(){
+		String txt="D:/repositories/GameMain/CardGame/src/CardGame/cards/"+name+".txt";
+		try {
+			Scanner sf = new Scanner(new FileReader(txt));
+			while (sf.hasNext()) {
+				String input=sf.nextLine();
+				String[] inputs=input.split("#");
+				switch(inputs[0]){
+					case "damage":
+					{
+						keywords.add(new Keyword(inputs[0], inputs[1], Integer.parseInt(inputs[2])));
+						break;
+					}
+					default:
+					{
+						break;
+					}
+				}
+			}
+			sf.close();
+		} catch (IOException ioe) {
+			System.out.println("asdf");
+		}
+        
 	}
 }

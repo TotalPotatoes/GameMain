@@ -60,9 +60,9 @@ public class Deck {
 			while(fRead.hasNext()){
 				deckList.add(new Card(fRead.nextLine()));
 				count++;
-				if(count>=size){
+				if(count>size){
 					fRead.close();
-					throw new DeckCreationException("too many cards: "+count);
+					throw new DeckCreationException("too many cards: "+count+". max allowed: "+size);
 				}
 				
 			}

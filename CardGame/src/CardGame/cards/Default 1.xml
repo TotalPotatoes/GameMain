@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cardName name="Default 1">
+	<damage shit="1">
+		<targets>c1</targets>
+		<value>1</value>
+	</damage>
+</cardName>

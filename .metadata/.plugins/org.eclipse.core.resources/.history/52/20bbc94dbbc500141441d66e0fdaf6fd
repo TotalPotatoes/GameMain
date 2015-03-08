@@ -1,0 +1,30 @@
+package CardGame;
+
+import java.io.IOException;
+import java.util.ArrayList;
+/**
+ * will have to refactor the class to start with a capital letter.
+ * @author Bernard Serbinowski
+ *
+ */
+public class Gameplay implements Runnable{
+	
+	//Player player1 = new Player();
+	//Player player2 = new Player();//this shuld probably be changed to an arrayList or some shit
+	private ArrayList<Player> players=new ArrayList<Player>();
+	private int playerturn;
+	
+	public Gameplay() throws IOException, DeckCreationException{
+		Thread t = new Thread(this);
+		t.start();
+	}
+
+	@Override
+	public void run() {
+		while(true){
+			//do stuff that i don't know what it does yet.
+		}
+		// TODO Auto-generated method stub
+		
+	}	
+}

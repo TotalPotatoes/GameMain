@@ -4,14 +4,18 @@ import java.util.ArrayList;
 
 public class Keyword {
 	private String keyName;
+	private String targets;
+	private int values;
 	/**
 	 * a constructor.
 	 * @param key
 	 * @param targets
 	 * @param value
 	 */
-	public Keyword(String key, ArrayList<Player> targets, int value){
+	public Keyword(String key, String ts, int vals){
 		keyName=key;
+		targets=ts;
+		values=vals;
 	}
 	public Keyword(String key){
 		
@@ -22,5 +26,11 @@ public class Keyword {
 	 */
 	public String getKey(){
 		return keyName;
+	}
+	public String getTargets(){
+		return targets;
+	}
+	public int getValues(){
+		return values;
 	}
 }

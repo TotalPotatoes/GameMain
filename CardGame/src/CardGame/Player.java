@@ -10,14 +10,13 @@ public class Player {
 	//attributes
 	private int health=100;//how much health the player has
 	private int armor=0;//how much armor the player has
-	private int magicresist=0;;//how much magic resist the player has
+	private int magicResist=0;;//how much magic resist the player has
 	private int speed=10;//how much speed the player has
 	private int intellect=0;//how much intellect the player has
 	private int attack=1;
 	private int strength=0;
-	private int spellpower=0;
-	private int spellspeed=10;
-	private int ttm=0;
+	private int spellPower=0;
+	private int spellSpeed=10;
 	private int black=0;
 	private int white=0;
 	private int grey=0;
@@ -29,11 +28,16 @@ public class Player {
 	private boolean alive = true;  
 	
 	
-	
+	/**
+	 * constructor for the player class
+	 */
 	public Player(){
 		
 	}
-	void setup(){
+	/**
+	 * no clue what thid does...
+	 */
+	public void setup(){
 		if(first == true){
 			health = 100;
 			for(int i=0; i<5; i++)//draw 5 starting
@@ -48,89 +52,104 @@ public class Player {
 		
 			
 	}
-	void phase1(){ //players take their turns
-		drawCard();
-		upkeep();//where mana burn happens
-		drawormana();
-		
-	}
-	/*
-	void cast() {
-		String Casting="";
-		for(int i = 0; i<hand.size();i++)
-			System.out.println(hand.get(i));//print this to gui to show what cards you have in hand// dont display here in casting, do it in general or something
-			
-		int x=0;//x is the chosen card to cast. with 0 being the first card
-		if(x<hand.size()){
-			Casting=hand.get(x);//gets name of card casted for the casting purpose
-			playedcard(x);//removes from hand
-		}
-		else{
-			
-		}
-		
-		
-	}
-	
-	*/
 	/**
 	 * 
 	 * @param cast
 	 */
 	public void cast(Card castedcard){
-		playedcard(castedcard);
-		playedcost(castedcard);		
+		playedCard(castedcard);	
 	}
 	
 	public void loadDeck(String fileName) throws DeckCreationException{
 		deck.loadDeck(fileName);
 	}
-	void playedcard(Card c){
+	
+	public void playedCard(Card c){
 		hand.removeCard(c);
 	}
-	public void playedcost(Card cost){
-		black = black;//minus the black cost of card
-		white = white;//minus the white cost
-		grey = grey; // minus the grey cost
-	}
-	void drawCard(){ //how one draws a card
+	
+	public void drawCard(){ //how one draws a card
 		hand.addCard(deck.drawCard());
 		//System.out.println(DeckList[TopDeck]);//topdeck is locating the top card on your deck
 		//TopDeck = TopDeck+1;	
 	}
 	
-	void mana(){
-		//method to convert card to mana
+	public void addStat(String stat, int value){
+		switch(stat){
+			case "health":{
+				health+=value;
+				break;
+			}
+			case "armor":{
+				armor+=value;
+				break;
+			}
+			case "magicResist":{
+				magicResist+=value;
+				break;
+			}
+			case "speed":{
+				speed+=value;
+				break;
+				
+			}
+			case "intellect":{
+				intellect+=value;
+				break;
+			}
+			case "attack":{
+				attack+=value;
+				break;
+			}
+			case "strength":{
+				strength+=value;
+				break;
+			}
+			case "spellPower":{
+				spellPower+=value;
+				break;
+				
+			}
+			case "spellSpeed":{
+				spellSpeed+=value;
+				break;
+			}
+			default:
+			{
+				System.out.println("Unidentified stat");
+				break;
+			}
+		}
 	}
-	void addstats(){
-		strength++;
-	}
-	void addstati(){
-		intellect++;
-	}
+	
 	public boolean getAlive(){
 		return alive;
 	}
 	
-	
-	void start() {first = true;}
-	void upkeep(){
+	/**
+	 * i have no idea what this does
+	 */
+	public void start() {first = true;}
+	/**
+	 * does upkeep stuff
+	 */
+	public void upkeep(){
 		health=health - (black+white+grey);
 	}
-	void drawormana() {
+	public void drawOrMana() {
 		String choice = "add stat s"; //add method to get choice from gui, draw or mana or +1 stat, idk
 		switch (choice){
 			case "draw":
 				drawCard();
 				break;
 			case "mana":
-				mana();
+				//mana();
 				break;
 			case "add stat s":
-				addstats();
+				addStat("strength", 1);
 				break;
 			case "add stat i":
-				addstati();
+				addStat("intellect", 1);
 				break;
 			default:
 				drawCard();
