@@ -1,0 +1,63 @@
+package CardGame;
+
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+public class MainClass extends JFrame implements Runnable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Player> players=new ArrayList<Player>();
+	private GuiGame gameWindow;
+	private Table table;
+	
+	public static final Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	
+	
+	int gemReq;
+	boolean game = true;
+	boolean shooting = false;
+	int x1;
+	int y1;
+	CardLayout c;
+	Container cont;
+	boolean saveable=false;
+	
+	public MainClass(){
+		c=new CardLayout();
+		cont=new Container();
+		this.add(cont);
+		cont.setLayout(c);
+
+		//c.show(cont, "menu");
+		this.setSize(SCREEN);
+
+		this.setUndecorated(true);
+
+		Thread t = new Thread(this);
+		t.start();
+		
+	}
+
+	public static void main(String[] args) {
+		MainClass m=new MainClass();
+		m.setVisible(true);
+		m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

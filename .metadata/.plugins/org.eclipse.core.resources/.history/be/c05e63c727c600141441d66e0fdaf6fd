@@ -1,0 +1,80 @@
+package CardGame;
+
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.swing.JFrame;
+
+public class MainClass extends JFrame implements Runnable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Player> players=new ArrayList<Player>();
+	private GuiGame gameWindow;
+	private Table table;
+	
+	public static final Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	private int gameState=0;
+	private int playerturn;
+	private CardLayout c;
+	private Container cont;
+	
+	public MainClass(){
+		gameWindow=new GuiGame();
+		c=new CardLayout();
+		cont=new Container();
+		this.add(cont);
+		cont.setLayout(c);
+		cont.add(gameWindow, "game");
+		//c.show(cont, "menu");
+		this.setSize(SCREEN);
+
+		this.setUndecorated(true);
+
+		Thread t = new Thread(this);
+		t.start();
+		
+	}
+
+	public static void main(String[] args) {
+		MainClass m=new MainClass();
+		m.setVisible(true);
+		m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+	@Override
+	public void run() {
+		Player activePlayer;
+		while(true){
+			switch(gameState){
+				case 0:{
+					break;
+				}
+				case 1:{
+					activePlayer=players.get(playerturn);
+					activePlayer.drawOrMana();
+					break;
+				}
+				
+			}
+			try {
+				//this.repaint();
+				Thread.sleep(50);
+			} catch (InterruptedException ex) {
+				Logger.getLogger(Gameplay.class.getName()).log(Level.SEVERE, null, ex);
+			}
+		}
+		// TODO Auto-generated method stub
+		
+	}
+
+}
