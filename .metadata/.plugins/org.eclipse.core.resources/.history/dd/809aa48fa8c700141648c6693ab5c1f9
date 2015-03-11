@@ -69,12 +69,6 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 				}
 				case 1:{
 					activePlayer=players.get(playerturn);
-					try {
-						activePlayer.loadDeck("idkyet");
-					} catch (DeckCreationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 					activePlayer.drawOrMana();
 					break;
 				}

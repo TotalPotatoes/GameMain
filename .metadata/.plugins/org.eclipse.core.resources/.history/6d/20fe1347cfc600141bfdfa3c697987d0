@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,7 +28,6 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 	private int playerturn;
 	private CardLayout c;
 	private Container cont;
-	private HashSet<Character> keyState=new HashSet<Character>();
 	
 	public MainClass(){
 		gameWindow=new GuiGame();
@@ -40,7 +38,6 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 		cont.add(gameWindow, "game");
 		//c.show(cont, "menu");
 		this.setSize(SCREEN);
-		this.addKeyListener(this);
 
 		this.setUndecorated(true);
 
@@ -62,19 +59,10 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 		while(true){
 			switch(gameState){
 				case 0:{
-					if(keyState.contains('g')&&keyState.contains('h')){
-						System.exit(0);
-					}
 					break;
 				}
 				case 1:{
 					activePlayer=players.get(playerturn);
-					try {
-						activePlayer.loadDeck("idkyet");
-					} catch (DeckCreationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 					activePlayer.drawOrMana();
 					break;
 				}
@@ -99,14 +87,12 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		keyState.add(e.getKeyChar());
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		keyState.remove(e.getKeyChar());
 		// TODO Auto-generated method stub
 		
 	}
