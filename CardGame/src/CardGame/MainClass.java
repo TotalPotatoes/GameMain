@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
 public class MainClass extends JFrame implements Runnable, KeyListener{
@@ -59,23 +60,35 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 	@Override
 	public void run() {
 		Player activePlayer;
+		players.add(new Player());//testing code
 		while(true){
+			//note that most of this is just testing code because w.e
 			switch(gameState){
 				case 0:{
 					if(keyState.contains('g')&&keyState.contains('h')){
 						System.exit(0);
 					}
+					if(keyState.contains('a')){
+						gameState=1;
+					}
 					break;
 				}
 				case 1:{
-					activePlayer=players.get(playerturn);
-					try {
-						activePlayer.loadDeck("idkyet");
-					} catch (DeckCreationException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					if(keyState.contains('b')){
+						gameState=0;
 					}
-					activePlayer.drawOrMana();
+					activePlayer=players.get(playerturn);
+					if(keyState.contains('l')){
+						JFileChooser fileC=new JFileChooser();
+						/*
+						try {
+							activePlayer.loadDeck("idkyet");
+						} catch (DeckCreationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						*/	
+					}
 					break;
 				}
 				case 2:{
