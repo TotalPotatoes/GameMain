@@ -122,6 +122,29 @@ public class Player {
 			}
 		}
 	}
+	public void takeDamage(String type, int value){
+		switch(type){
+		case "physical":{
+			if (value>armor)
+			{
+				health-= value-armor;
+			}
+		}break;
+		case "magical":{
+			if (value>magicResist)//as to not take negative damage thus gaining health
+			{
+				health-= value-magicResist;
+			}break;
+		}
+		default:
+		{
+			System.out.println("Undifined type");
+			break;
+		}
+			
+		}	
+	}
+		
 	
 	public boolean getAlive(){
 		return alive;
