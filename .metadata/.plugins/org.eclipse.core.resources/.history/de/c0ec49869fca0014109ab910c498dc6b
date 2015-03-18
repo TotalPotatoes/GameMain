@@ -79,17 +79,18 @@ public class MainClass extends JFrame implements Runnable, KeyListener{
 					}
 					activePlayer=players.get(playerturn);
 					if(keyState.contains('l')){
-						//System.out.println("aaas");
+						System.out.println("aaas");
 						JFileChooser fileC=new JFileChooser();
 						fileC.showOpenDialog(this);
-						//System.out.println(fileC.getSelectedFile().getAbsoluteFile());
+						System.out.println(fileC.getSelectedFile().getAbsoluteFile());
+						/*
 						try {
-							//System.out.println(fileC.getSelectedFile().getAbsolutePath());
-							activePlayer.loadDeck(fileC.getSelectedFile().getAbsolutePath());
+							activePlayer.loadDeck("");
 						} catch (DeckCreationException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+						*/
 					}
 					break;
 				}

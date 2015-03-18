@@ -44,7 +44,9 @@ public class Deck {
 		deckList.subList(0, x).clear();
 		return returner;
 	}
-	
+	public Deck(String file) throws DeckCreationException{
+		loadDeck(file);
+	}
 	/**
 	 * this loads a deck from the specified file
 	 * format of the file should be 1 line per card

@@ -5,12 +5,12 @@ package CardGame;
 public class DeckBuilder {
 	
 	//public static void main(String[] args) throws IOException {
-	 DeckBuilder() {
+	 DeckBuilder() throws DeckCreationException{
 		//take input for deck name
 		String topDeckCard="";
 		
 		
-		Deck deck = new Deck();		
+		Deck deck = new Deck("lol");		
 		
 
 		

@@ -62,7 +62,8 @@ public class Player {
 	
 	public void loadDeck(String fileName) throws DeckCreationException{
 		//System.out.println("aaaaaaaaaaa;;;;;;;;"+fileName);
-		deck=new Deck(fileName);
+		deck=new Deck();
+		deck.loadDeck(fileName);
 	}
 	
 	public void playedCard(Card c){

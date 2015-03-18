@@ -32,9 +32,10 @@ public class GuiGame extends JPanel{
 		System.out.println(c.getResourceConvertable());
 		System.out.println(c.getType());
 		*/
-		Deck d=new Deck();
+		Deck d;
 		try {
-			d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
+			d=new Deck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
+			//d.loadDeck("D:/repositories/GameMain/CardGame/src/CardGame/the best deck.txt");
 		} catch (DeckCreationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
