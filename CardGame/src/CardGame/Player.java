@@ -54,19 +54,47 @@ public class Player {
 	}
 	/**
 	 * 
-	 * @param cast
+	 * @param card
+	 * @return
 	 */
-	public void cast(Card castedcard){
-		playedCard(castedcard);	
+	public boolean canCast(Card card){
+		int temp[]=card.getCost();
+		int leftOver[]=new int[temp.length];
+		leftOver[0]=temp[0]-black;//how much black mana is left over
+		leftOver[1]=temp[1]-grey;//how much grey mana is left over
+		leftOver[2]=temp[2]-white;//how much white mana is left over
+		leftOver[3]=leftOver[0]+leftOver[1]+leftOver[2]-temp[3];
+		
+		for(int a=0; a<leftOver.length; a++){
+			if(leftOver[a]<0){
+				return false;
+			}
+		}
+		return true;	
 	}
-	
+	/**
+	 * this does the actual casting. 
+	 * @param card
+	 */
+	public void cast(Card card){
+		int temp[]=card.getCost();
+		black=black-temp[0];
+		grey=grey-temp[1];
+		white=white-temp[2];
+		chooseMana(temp[3]);
+		hand.removeCard(card);
+		
+	}
+	/**
+	 * idk how to make this work yet, but basically we need to be able to get info from the user about what mana they want to use
+	 * @param cost
+	 */
+	private void chooseMana(int cost){
+		
+	}
 	public void loadDeck(String fileName) throws DeckCreationException{
 		//System.out.println("aaaaaaaaaaa;;;;;;;;"+fileName);
 		deck=new Deck(fileName);
-	}
-	
-	public void playedCard(Card c){
-		hand.removeCard(c);
 	}
 	
 	public void drawCard(){ //how one draws a card
